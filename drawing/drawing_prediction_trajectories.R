@@ -52,17 +52,17 @@ drawing_prediction_trajectories=function(country1,country2,country3,country4,cou
   #layout(matrix(c(1,1,1,2,3,4,5), 3, 2, byrow = TRUE),heights=c(1,4.8,4.8,4.8))
   ii=1
   layout(matrix(c(1,1,1,2,3,4,5,6,7,8,9,10),4, 3, byrow = T),heights=c(1,4.5,4.5,4.5))
- # layout(matrix(c(1,1,1,2,3,4,5,6,7,8,8,8),4, 3, byrow = T),heights=c(1,4.8,4.8,4.8))
- 
-   plot(date_rangeB,-Rep_all_quantile[1,,ii]-1,pch=19,ylim=c(0,1),xlim=c(as.Date("2019-12-10"),as.Date("2020-10-04")),ylab="",col="white",xaxt="n",yaxt="n",bty="n")
+  # layout(matrix(c(1,1,1,2,3,4,5,6,7,8,8,8),4, 3, byrow = T),heights=c(1,4.8,4.8,4.8))
+  
+  plot(date_rangeB,-Rep_all_quantile[1,,ii]-1,pch=19,ylim=c(0,1),xlim=c(as.Date("2019-12-10"),as.Date("2020-10-04")),ylab="",col="white",xaxt="n",yaxt="n",bty="n")
   legend(as.Date("2019-12-10")-10, 5,c("Total confirmed cases reported","New recoveries","Total deaths","New confirmed cases reported","Real total confirmed cases reported","Individuals infected but not hospitalized","Total confirmed cases reported CFU","Individuals infected but not hospitalized CFU"),
-         ncol=4,text.font=1,fill=c("blue","green","red",rgb(1,0.6,0.1),"black",rgb(0,1,1,1),rgb(0.65,0.2,0.35),rgb(1,0,0.4,1)),col=c("blue","green","red",rgb(1,0.6,0.1),"black",rgb(0.65,0.2,0.35),rgb(0,1,1,1),rgb(1,0,0.4,1)),border="black",
+         ncol=4,text.font=1,fill=c("blue","green","red",rgb(1,0.6,0.1),"black",rgb(0,0.5,0.9,1),rgb(0.65,0.2,0.35),rgb(1,0.16,0.5,1)),col=c("blue","green","red",rgb(1,0.6,0.1),"black",rgb(0.65,0.2,0.35),rgb(0,1,1,1),rgb(1,0,0.4,1)),border="black",
          cex=0.7,xpd=T,bty="n",text.width = 70)
   
   foreign_country=c("Covid-19 in Wuhan, China","Covid-19 in Hubei Province (excluding Wuhan), China","Covid-19 in Switzerland","Covid-19 in Sweden","Covid-19 in Austria","Covid-19 in France","Covid-19 in The United Kingdom","Covid-19 in Germany","Covid-19 in Spain",
                     "Covid-19 in Italy","Covid-19 in Norway","Covid-19 in The Netherlands","Covid-19 in Belgium","Covid-19 in Denmark","Covid-19 in The United States")
- countrylist=c(country1,country2,country3,country4,country5,country6,country7,country8,country9)
- # countrylist=c(1,2,45,33)
+  countrylist=c(country1,country2,country3,country4,country5,country6,country7,country8,country9)
+  # countrylist=c(1,2,45,33)
   
   for (jj in 1:9){
     
@@ -91,12 +91,12 @@ drawing_prediction_trajectories=function(country1,country2,country3,country4,cou
     
     polygon(c(date_rangeB,rev(date_rangeB)),c(II_quantile[2,,ii]+Iso_all_quantile[2,,ii],rev(II_quantile[4,,ii]+Iso_all_quantile[4,,ii])),lty=0,col=rgb(0,1,1,0.2))
     polygon(c(date_rangeB,rev(date_rangeB)),c(II_quantile[1,,ii]+Iso_all_quantile[1,,ii],rev(II_quantile[5,,ii]+Iso_all_quantile[5,,ii])),lty=0,col=rgb(0,1,1,0.1))
-    lines(date_rangeB,II_quantile[3,,ii]+Iso_all_quantile[3,,ii],type="l",col=rgb(0,1,1,1),xaxt="n",yaxt="n",xlab="",ylab="",cex=3)
+    lines(date_rangeB,II_quantile[3,,ii]+Iso_all_quantile[3,,ii],type="l",col=rgb(0,0.5,0.9,1),xaxt="n",yaxt="n",xlab="",ylab="",cex=3)
     
     
     polygon(c(date_rangeB,rev(date_rangeB)),c(II_quantile2[2,,ii]+Iso_all_quantile2[2,,ii],rev(II_quantile2[4,,ii]+Iso_all_quantile2[4,,ii])),lty=0,col=rgb(1,0,0.4,0.2))
     polygon(c(date_rangeB,rev(date_rangeB)),c(II_quantile2[1,,ii]+Iso_all_quantile2[1,,ii],rev(II_quantile2[5,,ii]+Iso_all_quantile2[5,,ii])),lty=0,col=rgb(1,0,0.4,0.1))
-    lines(date_rangeB,II_quantile2[3,,ii]+Iso_all_quantile2[3,,ii],type="l",col=rgb(1,0,0.4,1),xaxt="n",yaxt="n",xlab="",ylab="",cex=3)
+    lines(date_rangeB,II_quantile2[3,,ii]+Iso_all_quantile2[3,,ii],type="l",col=rgb(1,0.16,0.5,1),xaxt="n",yaxt="n",xlab="",ylab="",cex=3)
     
     
     
@@ -128,7 +128,7 @@ drawing_prediction_trajectories=function(country1,country2,country3,country4,cou
     polygon(c(date_rangeB,rev(date_rangeB)),c(Die_all_quantile[1,,ii],rev(Die_all_quantile[5,,ii])),lty=0,col=rgb(1,0,0,0.1))
     lines(date_rangeB,Die_all_quantile[3,,ii],type="l",col=rgb(1,0,0),xaxt="n",yaxt="n",xlab="",ylab="",cex=0.5)
     
-   
+    
     title(main=name,adj=0.5,cex.main=0.75,font.main=1,line=0.5); letR = letR + 1 
   }
 }
